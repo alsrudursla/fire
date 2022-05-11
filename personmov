@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PersonMov : MonoBehaviour
+{
+    private GameObject Person; // 불 막아주는 사람
+    private float speed = 3.0f; // 사람 속도
+    bool left, right; // 왼쪽, 오른쪽 이동 버튼
+
+
+    void Start()
+    {
+        Person = GameObject.Find("Person");
+    }
+    void Update()
+    {
+        
+
+        if (left) Person.GetComponent<Transform>().position += Vector3.left * speed * Time.deltaTime;
+        if (right) Person.GetComponent<Transform>().position += Vector3.right * speed * Time.deltaTime;
+    }
+    public void goleft() //왼쪽 이동
+    {
+        left = true;
+    }
+    public void stopleft() //왼쪽 이동 멈춤
+    {
+        left = false;
+    }
+    public void goright() //오른쪽 이동
+    {
+        right = true;
+    }
+    public void stopright() //오른쪽 이동 멈춤
+    {
+        right = false;
+    }
+}
