@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UmbrellaMov : MonoBehaviour
+{
+    PersonMov personMove;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        personMove = GameObject.FindWithTag("Person").GetComponent<PersonMov>();//PersonMov 스크립트에서 변수 가져오기
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        UmbrellaPosition();//우산의 위치
+    }
+    void UmbrellaPosition()//우산의 위치
+    {
+        if (personMove.left)
+        {
+            gameObject.GetComponent<Transform>().position += Vector3.left * personMove.speed * Time.deltaTime;
+        }
+        else if (personMove.right)
+        {
+            gameObject.GetComponent<Transform>().position += Vector3.right * personMove.speed * Time.deltaTime;
+        }
+        if (gameObject.transform.position.x > 3.7f) // 우산이 화면 밖으로 나가지 않게 범위 제한
+        {
+            gameObject.transform.position = new Vector3(personMove.End_Position_x, -1.633f, 0); // 해당 위치 Y 값 넣어줘야 함
+        }
+        else if (gameObject.transform.position.x < -3.7f)
+        {
+            gameObject.transform.position = new Vector3(-personMove.End_Position_x, -1.633f, 0);
+        }
+    }
+}
