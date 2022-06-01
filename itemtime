@@ -36,8 +36,8 @@ public class item : MonoBehaviour
         }
     }
 
-    void BalanceTime()
+    void BalanceTime() //빗방울 속도 + 개수 밸런스 조절 함수
     {
-        itemspeed += 1.0f;
+        itemspeed += 1.0f; //빗방울 속도 밸런스 조절
     }
 }
