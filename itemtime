@@ -13,7 +13,7 @@ public class item : MonoBehaviour
     {
         fireball = GameObject.FindWithTag("FireBall").GetComponent<FireBall>();//FireBall 스크립트에서 변수 가져오기
         fallingitem = GetComponent<Rigidbody2D>();
-        InvokeRepeating("BalanceTime", 7.0f, 7.0f);
+        InvokeRepeating("BalanceTime", 7.0f, 7.0f); //7.0f 마다 "BalanceTime" 함수 반복
     }
 
     // Update is called once per frame
